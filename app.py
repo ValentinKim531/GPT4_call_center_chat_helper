@@ -10,6 +10,7 @@ env = Env()
 env.read_env()
 
 client = AsyncOpenAI(api_key=env.str("OPENAI_API_KEY"))
+assistant_id = env.str("ASSISTANT_ID")
 
 
 class Question(BaseModel):
@@ -24,7 +25,6 @@ def remove_annotations(text: str) -> str:
 
 @app.post("/ask-question/")
 async def ask_question(question: Question):
-    assistant_id = env.str("ASSISTANT_ID")
     thread = await client.beta.threads.create()
 
     await client.beta.threads.messages.create(

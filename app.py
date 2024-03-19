@@ -24,7 +24,7 @@ def remove_annotations(text: str) -> str:
 
 @app.post("/ask-question/")
 async def ask_question(question: Question):
-    assistant_id = "asst_b2wfXa0xXMGhavqAulrsE2Gv"
+    assistant_id = env.str("ASSISTANT_ID")
     thread = await client.beta.threads.create()
 
     await client.beta.threads.messages.create(

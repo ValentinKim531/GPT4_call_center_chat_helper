@@ -9,3 +9,5 @@ RUN . /app/venv/bin/activate && pip install --upgrade pip && pip install -r requ
 
 CMD . /app/venv/bin/activate && uvicorn app:app --host=0.0.0.0 --port=${PORT:-8000}
 
+
+

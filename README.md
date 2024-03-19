@@ -1,6 +1,6 @@
 # Приложение для консультации по маркетплейсу daribar.kz
 
-Приложение с использованием FastAPI и OpenAI GPT-4 
+Приложение с использованием FastAPI и OpenAI GPT-4 (кастомный ассистент GPTs)
 для обработки запросов пользователей и предоставления информации по услугам маркетплейса daribar.kz.
 
 ## Установка
@@ -41,17 +41,6 @@ uvicorn app:app --reload
 
 ## Работа с приложением
 
-1. Загрузка текстового файла c информацией, 
-необходимой для предоставления ответов пользователю:
-
-```bash
-curl -X 'POST' \
-  'http://127.0.0.1:8000/upload-text-file/' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'text_file=@path/to/your/file.txt;type=text/plain'
-```
-
 2. Направление запроса (вопроса пользователя):
 ```bash
 curl -X 'POST' \
@@ -59,6 +48,7 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{"question":"<ваш вопрос здесь>"}'
+
 ```
 
 Ответ будет возвращен в формате JSON с ключом `answer`.
